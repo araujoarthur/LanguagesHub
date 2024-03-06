@@ -1,0 +1,1 @@
+Resolução das Listas de Exercícios de Fundamentos de Programação @ PUCRS 2024/1
