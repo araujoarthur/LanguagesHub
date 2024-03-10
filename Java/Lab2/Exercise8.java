@@ -6,7 +6,7 @@ public class Exercise8 {
         try(Scanner sc = new Scanner(System.in))
         {
             System.out.println("Digite um numero inteiro: ");
-            
+
             String input = sc.nextLine();
             try {
                 int inpt = Integer.parseInt(input);
@@ -15,8 +15,7 @@ public class Exercise8 {
                 while(inpt != 0)
                 {
                     sum = sum + (inpt%10);
-                    inpt = inpt/(int) 10;
-                    
+                    inpt = inpt/(int) 10; 
                 }
 
                 System.out.println("A soma dos dígitos é: " + sum);
