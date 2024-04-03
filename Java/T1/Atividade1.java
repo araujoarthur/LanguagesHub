@@ -41,7 +41,10 @@ public class Atividade1{
 
             double to_pay = calculateFinalPrice(calculateDurationHours(start_timestamp, end_timestamp), discount);
 
-            System.out.println("O valor a pagar é: R$" + to_pay);
+            int total_hours = (end_timestamp - start_timestamp) / 60;
+            int remain_minutes = (end_timestamp - start_timestamp) % 60;
+
+            System.out.println("O valor a pagar é: R$" + to_pay + " por " + total_hours + " horas e " + remain_minutes + " minutos");
         }
     }
 

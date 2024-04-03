@@ -20,4 +20,7 @@ fn another_parametrized_function(x:i32, unit_label:char) {
     println!("The value of x is: {x} and the unit label is: {unit_label}");
 }
 
+fn function_with_return_type() -> i32 {
+    5 // In Rust, you can either return early or return the last EXPRESSION. (Statements != Expression).    
+}
 // The function signature is composed of the function name, the parameters, and the return type.
