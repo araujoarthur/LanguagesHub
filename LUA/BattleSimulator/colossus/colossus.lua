@@ -7,6 +7,6 @@ colossus.maxHealth = 10
 colossus.health = colossus.maxHealth
 colossus.attack = 4
 colossus.defense = 2
-colossus.speed = 3
+colossus.speed = 2
 
 return colossus

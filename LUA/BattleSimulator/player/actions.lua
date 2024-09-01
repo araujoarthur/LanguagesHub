@@ -1,3 +1,4 @@
+local utils = require("utils")
 local actions = {}
 
 actions.list = {}
@@ -15,10 +16,12 @@ function actions.build(playerData)
          local damage = math.max(1, math.ceil(rawDamage))
 
          if success then
-            print(string.format("Você atacou a criatura e deu %d pontos de dano", damage))
+            print(string.format("%s atacou %s e deu %d pontos de dano", playerData.name, creatureData.name, damage))
             creatureData.health = creatureData.health - damage
+            local healthRate = math.floor((creatureData.health / creatureData.maxHealth) * 10)
+            print(string.format("%s: %s", creatureData.name, utils.getProgressBar(healthRate)))
          else
-            print("Você tentou atacar, mas esqueceu a espada na mochila")
+            print(string.format("%s tentou atacar, mas esqueceu a espada na mochila", playerData.name))
          end
       end
    }
@@ -28,15 +31,16 @@ function actions.build(playerData)
       requirement = function(playerData, creatureData)
          return playerData.potions >= 1
       end,
-      execute = function()
+      execute = function(playerData, creatureData)
          playerData.potions = playerData.potions - 1
          local regenPoints = 5
          playerData.health = playerData.health + math.min(playerData.maxHealth, playerData.health + regenPoints)
-         print("Você usou uma poção e recuperou vida")
+         print(string.format("%s usou uma poção e recuperou vida", playerData.name))
       end
    }
 
    actions.list[#actions.list + 1] = swordAttack
+   actions.list[#actions.list + 1] = regenPotion
 end
 
 ---Retorna as ações validas
